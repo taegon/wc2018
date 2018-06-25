@@ -119,10 +119,14 @@ def build_html():
                 f.write("<table class=\"blueTable\">")
                 f.write("<thead>")
                 header_list = ["Teams#header", "Score#header"]
+                # for p in PLAYER:
+                #     header_list.append(p + " (" + str(player_score[p]["score"]) + ")#player")
+                #     header_list.append("" + "#score")
+                # f.write(wrap_tag("th", header_list))
+                header_content = wrap_tag("th", header_list)
                 for p in PLAYER:
-                    header_list.append(p + " (" + str(player_score[p]["score"]) + ")#player")
-                    header_list.append("" + "#score")
-                f.write(wrap_tag("th", header_list))
+                    header_content += "<th width=\"70\" colspan=\"2\">{} ({})</th>".format(p, player_score[p]["score"])
+                f.write(header_content)
                 f.write("</thead>")
                 write_table(f)
                 f.write("</table>")
