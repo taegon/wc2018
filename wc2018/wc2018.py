@@ -10,6 +10,7 @@ PLAYER = {
     "Nathaniel": "../input/world_cup_2018_Ns.xlsx",
     "Taegon": "../input/world_cup_2018_Taegon.xlsx",
     "Rylie": "../input/world_cup_2018_RP.xlsx",
+    "Jennifer": "../input/world_cup_2018_Jen.xlsx",
 }
 player_score = {}
 SKIP_ROW = 14
