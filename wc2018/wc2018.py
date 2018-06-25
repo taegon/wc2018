@@ -6,6 +6,8 @@ final_score = []
 PLAYER = {
     "Mo": "../input/world_cup_2018_Mo.xlsx",
     "Tim": "../input/world_cup_2018_Tim.xlsx",
+    "Lloyd": "../input/world_cup_2018LR.xlsx",
+    "Nathaniel": "../input/world_cup_2018_Ns.xlsx",
     "Taegon": "../input/world_cup_2018_Taegon.xlsx",
     "Rylie": "../input/world_cup_2018_RP.xlsx",
 }
