@@ -17,7 +17,7 @@ SKIP_ROW = 14
 
 
 def convert_int(val):
-    if val != None and val != "":
+    if val is not None and val != "":
         return int(val)
     return "-"
 
