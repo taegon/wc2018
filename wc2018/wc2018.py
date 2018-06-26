@@ -15,17 +15,17 @@ PLAYER = {
 }
 PLAYER_RANK = []
 RANKFLOW = [
-    # ["June 28 (R3)", 44],
+    # ["June 28 (R3)", 48],
     # ["June 27", 44],
     ["June 26", 40],
     # ["June 25", 36],
     ["June 24 (R2)", 32],
     ["June 22", 26],
     ["June 20", 20],
-    ["June 19", 17],
+    ["June 19 (R1)", 17],
 ]
 LINEPLOT = [
-    ["June 19", 17],
+    ["June 19 (R1)", 17],
     ["June 20", 20],
     ["June 21", 23],
     ["June 22", 26],
@@ -33,7 +33,7 @@ LINEPLOT = [
     ["June 25", 36],
     ["June 26", 40],
     # ["June 27", 44],
-    # ["June 28 (R3)", 44],
+    # ["June 28 (R3)", 48],
 ]
 
 player_score = {}
