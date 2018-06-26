@@ -72,10 +72,51 @@ table.blueTable tfoot .links a{
 .wrong {
     background-color: #ccaaaa;
 }
+#myChart {
+    height: 500px;
+    width: 100%;
+}
 
     </style>
+    <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
 </head>
 <body>
 {{SCORE_TABLE}}
+
+<div id='myChart'></div>
+<script>
+var myConfig = {
+    "type":"rankflow",
+    "options":{
+        "sep-space":0,
+        "style":{
+            "flow":{
+                "border-color":"black",
+                "border-width":2
+            }
+        }
+    },
+    "plotarea":{
+        "margin":20
+    },
+    "scale-x":{
+        "labels":[{{RANKFLOW_LABELS}}],
+        "values":[{{RANKFLOW_VALUES}}]
+    },
+    "series":[
+    {{RANKFLOW_SERIES}}
+    ]
+};
+
+zingchart.render({
+	id : 'myChart',
+	data : myConfig,
+	height: "100%",
+	width: "100%"
+});
+</script>
 </body>
 </html>

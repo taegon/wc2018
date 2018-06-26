@@ -1,4 +1,5 @@
 import xlrd
+from scipy.stats import rankdata
 
 FINAL_SCORE_FILE = "../input/world_cup_2018_final.xlsx"
 team_list = []
@@ -12,6 +13,17 @@ PLAYER = {
     "Rylie": "../input/world_cup_2018_RP.xlsx",
     "Jennifer": "../input/world_cup_2018_Jen.xlsx",
 }
+RANKFLOW = [
+    # ["June 28 (R3)", 44],
+    # ["June 27", 44],
+    # ["June 26", 40],
+    ["June 25", 36],
+    ["June 24 (R2)", 32],
+    ["June 22", 26],
+    ["June 20", 20],
+    ["June 19", 17],
+]
+
 player_score = {}
 SKIP_ROW = 14
 
@@ -30,7 +42,6 @@ def read_final_score():
     for r in range(6, 54):
         team_list.append([sheet.cell(r, 4).value, sheet.cell(r, 7).value])
     final_score = read_score_list(FINAL_SCORE_FILE)
-    print(final_score)
 
 
 def read_score_list(filename):
@@ -49,13 +60,14 @@ def read_score_list(filename):
     return score_list
 
 
-def count_score(player_list):
+def count_score(player_list, last=None):
+    if last is None:
+        last = len(final_score)
     score = 0
-    for i in range(SKIP_ROW, len(final_score)):
+    for i in range(SKIP_ROW, last):
         sol = final_score[i]
         pred = player_list[i]
         if sol[0] == pred[0] and sol[1] == pred[1]:
-            print("{} = {}".format(sol, pred))
             score += 2
         if sol[2] == pred[2]:
             score += 1
@@ -109,6 +121,44 @@ def write_table(f):
         f.write("</tr>\n")
 
 
+def make_rank_content():
+    rank_size = len(RANKFLOW)
+
+    player_ranks = []
+    player_scores = []
+    for i in range(rank_size):
+        p_score = []
+        for j, p in enumerate(PLAYER):
+            p_score.append(count_score(player_score[p]["raw"], RANKFLOW[i][1]))
+        p_rank = rankdata(p_score, method='ordinal')
+        p_rank = len(p_rank) - p_rank + 1
+        player_scores.append(p_score)
+        player_ranks.append(p_rank)
+    print(player_scores)
+    print(player_ranks)
+
+    p_score = []
+    for j, p in enumerate(PLAYER):
+        p_score.append(count_score(player_score[p]["raw"]))
+    final_rank = rankdata(p_score, method='ordinal')
+    final_rank = len(final_rank) - final_rank + 1
+
+    rank_series_text = ""
+
+    for i, p in enumerate(PLAYER):
+        template_str = """
+        {{
+          "text":"{}",
+          "ranks":[{}],
+          "rank":{}
+        }},
+        """
+
+        rank_series_text += template_str.format(p, ",".join([str(x[i]) for x in player_ranks]), final_rank[i])
+
+    return rank_series_text
+
+
 def build_html():
     contents = None
     with open("../input/template.html", "r") as f:
@@ -131,6 +181,50 @@ def build_html():
                 f.write("</thead>")
                 write_table(f)
                 f.write("</table>")
+            elif "{{RANKFLOW_LABELS}}" in line:
+                rank_label_text = ",".join(["\"{}\"".format(x[0]) for x in RANKFLOW])
+                line = line.replace("{{RANKFLOW_LABELS}}", rank_label_text)
+                f.write(line)
+            elif "{{RANKFLOW_VALUES}}" in line:
+                rank_value_text = ",".join(["\"{}\"".format(x[0]) for x in RANKFLOW])
+                line = line.replace("{{RANKFLOW_VALUES}}", rank_value_text)
+                f.write(line)
+            elif "{{RANKFLOW_SERIES}}" in line:
+                # {
+                #     "text": "Air West",
+                #     "ranks": [3, 4, 1],
+                #     "rank": 3
+                # },
+                rank_content = """
+                    {
+      "text":"Air West",
+      "ranks":[3,4,1],
+      "rank":3
+    },
+    {
+      "text":"Braniff",
+      "ranks":[1,1,5],
+      "rank":1
+    },
+    {
+      "text":"Capital",
+      "ranks":[5,2,4],
+      "rank":4
+    },
+    {
+      "text":"Eastern",
+      "ranks":[2,3,2],
+      "rank":2
+    },
+    {
+      "text":"Galaxy",
+      "ranks":[4,5,3],
+      "rank":5
+    }
+                """
+                rank_content = make_rank_content()
+                line = line.replace("{{RANKFLOW_SERIES}}", rank_content)
+                f.write(line)
             else:
                 f.write(line)
 
