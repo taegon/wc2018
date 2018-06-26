@@ -72,13 +72,8 @@ table.blueTable tfoot .links a{
 .wrong {
     background-color: #ccaaaa;
 }
-#myChart {
-    height: 500px;
-    width: 100%;
-}
-
     </style>
-    <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
     ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
     </script>
@@ -86,7 +81,9 @@ table.blueTable tfoot .links a{
 <body>
 {{SCORE_TABLE}}
 
-<div id='myChart'></div>
+<div id='myChart' style="height: 500px; width: 100%"></div>
+<div id='lineChart' style="height: 500px; width: 100%"></div>
+
 <script>
 var myConfig = {
     "type":"rankflow",
@@ -111,9 +108,39 @@ var myConfig = {
     ]
 };
 
+
+var lineConfig = {
+    "type":"line",
+    "plotarea": {
+        "adjust-layout":true /* For automatic margin adjustment. */
+    },
+    "plot":{
+        "aspect":"segmented"
+        // "aspect":"stepped"
+    },
+    "scale-x": {
+        "label":{ /* Add a scale title with a label object. */
+            "text":"Accumulative score by time series",
+        },
+        /* Add your scale labels with a labels array. */
+        "labels":[{{LINEPLOT_LABEL}}]
+    },
+    "series":[
+        {{LINEPLOT_VALUE}}
+    ]
+};
+
 zingchart.render({
 	id : 'myChart',
 	data : myConfig,
+	height: "100%",
+	width: "100%"
+});
+
+
+zingchart.render({
+	id : 'lineChart',
+	data : lineConfig,
 	height: "100%",
 	width: "100%"
 });

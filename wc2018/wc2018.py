@@ -13,15 +13,27 @@ PLAYER = {
     "Rylie": "../input/world_cup_2018_RP.xlsx",
     "Jennifer": "../input/world_cup_2018_Jen.xlsx",
 }
+PLAYER_RANK = []
 RANKFLOW = [
     # ["June 28 (R3)", 44],
     # ["June 27", 44],
-    # ["June 26", 40],
-    ["June 25", 36],
+    ["June 26", 40],
+    # ["June 25", 36],
     ["June 24 (R2)", 32],
     ["June 22", 26],
     ["June 20", 20],
     ["June 19", 17],
+]
+LINEPLOT = [
+    ["June 19", 17],
+    ["June 20", 20],
+    ["June 21", 23],
+    ["June 22", 26],
+    ["June 24 (R2)", 32],
+    ["June 25", 36],
+    ["June 26", 40],
+    # ["June 27", 44],
+    # ["June 28 (R3)", 44],
 ]
 
 player_score = {}
@@ -123,6 +135,7 @@ def write_table(f):
 
 def make_rank_content():
     rank_size = len(RANKFLOW)
+    PLAYER_RANK.clear()
 
     player_ranks = []
     player_scores = []
@@ -155,8 +168,39 @@ def make_rank_content():
         """
 
         rank_series_text += template_str.format(p, ",".join([str(x[i]) for x in player_ranks]), final_rank[i])
+        PLAYER_RANK.append([p, final_rank[i], i])
 
     return rank_series_text
+
+
+def make_lineplot_content():
+    lineplot_size = len(LINEPLOT)
+
+    player_scores = []
+    for i in range(lineplot_size):
+        p_score = []
+        for j, p in enumerate(PLAYER):
+            p_score.append(count_score(player_score[p]["raw"], LINEPLOT[i][1]))
+        player_scores.append(p_score)
+    print(player_scores)
+
+
+    lineplot_series_text = ""
+    # {"values": [20, 40, 25, 50, 15, 45, 33, 34]},
+    # {"values": [5, 30, 21, 18, 59, 50, 28, 33]}
+    PLAYER_RANK.sort(key=lambda x: x[1])
+    for player in PLAYER_RANK:
+        p = player[0]
+        i = player[2]
+        template_str = """
+        {{
+          "values":[{}]
+        }},
+        """
+
+        lineplot_series_text += template_str.format(",".join([str(x[i]) for x in player_scores]))
+
+    return lineplot_series_text
 
 
 def build_html():
@@ -224,6 +268,14 @@ def build_html():
                 """
                 rank_content = make_rank_content()
                 line = line.replace("{{RANKFLOW_SERIES}}", rank_content)
+                f.write(line)
+            elif "{{LINEPLOT_LABEL}}" in line:
+                lineplot_label_text = ",".join(["\"{}\"".format(x[0]) for x in LINEPLOT])
+                line = line.replace("{{LINEPLOT_LABEL}}", lineplot_label_text)
+                f.write(line)
+            elif "{{LINEPLOT_VALUE}}" in line:
+                lineplot_content = make_lineplot_content()
+                line = line.replace("{{LINEPLOT_VALUE}}", lineplot_content)
                 f.write(line)
             else:
                 f.write(line)
