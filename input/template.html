@@ -79,10 +79,13 @@ table.blueTable tfoot .links a{
     </script>
 </head>
 <body>
-{{SCORE_TABLE}}
-
-<div id='myChart' style="height: 500px; width: 100%"></div>
+<h1>Group Stage</h1>
+<h2>Score chart</h2>
 <div id='lineChart' style="height: 500px; width: 100%"></div>
+<h2>Ranking chart</h2>
+<div id='myChart' style="height: 500px; width: 100%"></div>
+<h2>Score Table</h2>
+{{SCORE_TABLE}}
 
 <script>
 var myConfig = {
@@ -113,6 +116,23 @@ var lineConfig = {
     "type":"line",
     "plotarea": {
         "adjust-layout":true /* For automatic margin adjustment. */
+    },
+        "legend": {
+        "align":"center",
+        "border-color": "none",
+        "shadow": false,
+        "layout": "float",
+        "margin-top":"9%",
+        "item": {
+            "font-color": "#666"
+        },
+        "marker":{
+          "size": 5,
+          "shadow": 0
+        },
+    },
+    "tooltip":{
+        "text":"%t: %v at %kl"
     },
     "plot":{
         "aspect":"segmented"

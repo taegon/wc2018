@@ -5,17 +5,17 @@ FINAL_SCORE_FILE = "../input/world_cup_2018_final.xlsx"
 team_list = []
 final_score = []
 PLAYER = {
-    "Mo": "../input/world_cup_2018_Mo.xlsx",
-    "Tim": "../input/world_cup_2018_Tim.xlsx",
+    "Jennifer": "../input/world_cup_2018_Jen.xlsx",
     "Lloyd": "../input/world_cup_2018LR.xlsx",
+    "Mo": "../input/world_cup_2018_Mo.xlsx",
     "Nathaniel": "../input/world_cup_2018_Ns.xlsx",
     "Taegon": "../input/world_cup_2018_Taegon.xlsx",
+    "Tim": "../input/world_cup_2018_Tim.xlsx",
     "Rylie": "../input/world_cup_2018_RP.xlsx",
-    "Jennifer": "../input/world_cup_2018_Jen.xlsx",
 }
 PLAYER_RANK = []
 RANKFLOW = [
-    # ["June 28 (R3)", 48],
+    ["June 28 (R3)", 48],
     ["June 27", 44],
     ["June 26", 40],
     # ["June 25", 36],
@@ -33,7 +33,7 @@ LINEPLOT = [
     ["June 25", 36],
     ["June 26", 40],
     ["June 27", 44],
-    # ["June 28 (R3)", 48],
+    ["June 28 (R3)", 48],
 ]
 
 player_score = {}
@@ -194,11 +194,12 @@ def make_lineplot_content():
         i = player[2]
         template_str = """
         {{
-          "values":[{}]
+          "values":[{}],
+          "text": '{}',
         }},
         """
 
-        lineplot_series_text += template_str.format(",".join([str(x[i]) for x in player_scores]))
+        lineplot_series_text += template_str.format(",".join([str(x[i]) for x in player_scores]), p)
 
     return lineplot_series_text
 
