@@ -1,19 +1,18 @@
 import xlrd
 from scipy.stats import rankdata
 
-FINAL_SCORE_FILE = "../input/world_cup_2018_final.xlsx"
-team_list = []
-final_score = []
+FINAL_SCORE_FILE = "../input/r16/world_cup_2018r16_final.xlsx"
+team_list = {}
 INPUT_DIR = "../input/r16/"
 INPUT_DIR_1ST = "../input/"
 PLAYER = {
-    "Jennifer": "world_cup_2018_Jen.xlsx",
-    "Lloyd": "world_cup_2018LR.xlsx",
-    "Mo": "world_cup_2018_Mo.xlsx",
-    "Nathaniel": "world_cup_2018_Ns.xlsx",
-    "Taegon": "world_cup_2018_Taegon.xlsx",
-    "Tim": "world_cup_2018_Tim.xlsx",
-    "Rylie": "world_cup_2018_RP.xlsx",
+    # "Jennifer": "world_cup_2018_Jen.xlsx",
+    "Lloyd": "world_cup_2018r16LR.xlsx",
+    # "Mo": "world_cup_2018_Mo.xlsx",
+    # "Nathaniel": "world_cup_2018_Ns.xlsx",
+    # "Taegon": "world_cup_2018_Taegon.xlsx",
+    "Tim": "world_cup_2018r16_Tim.xlsx",
+    # "Rylie": "world_cup_2018_RP.xlsx",
 }
 
 PLAYER_1st = {
@@ -50,7 +49,28 @@ LINEPLOT = [
 ]
 
 player_score = {}
-SKIP_ROW = 14
+
+ROUND_16 = (( 9 + 5 * 0, 51), (10 + 5 * 0, 51),
+            ( 9 + 5 * 1, 51), (10 + 5 * 1, 51),
+            ( 9 + 5 * 2, 51), (10 + 5 * 2, 51),
+            ( 9 + 5 * 3, 51), (10 + 5 * 3, 51),
+            ( 9 + 5 * 4, 51), (10 + 5 * 4, 51),
+            ( 9 + 5 * 5, 51), (10 + 5 * 5, 51),)
+
+ROUND_8 = (( 11 + 8 * 0, 51 + 6 * 1), (12 + 8 * 0, 51 + 6 * 1),
+           ( 11 + 8 * 1, 51 + 6 * 1), (12 + 8 * 1, 51 + 6 * 1),
+           ( 11 + 8 * 2, 51 + 6 * 1), (12 + 8 * 2, 51 + 6 * 1),
+           ( 11 + 8 * 3, 51 + 6 * 1), (12 + 8 * 3, 51 + 6 * 1),)
+
+ROUND_4 = (( 15, 51 + 6 * 2), (16, 51 + 6 * 2),
+           ( 31, 51 + 6 * 2), (32, 51 + 6 * 2),)
+
+# I feel it's duplicate Round of 4
+ROUND_2 = (( 22, 51 + 6 * 3), (23, 51 + 6 * 3),)
+
+# Match final score
+ROUND_1 = (( 22, 51 + 6 * 3 + 1), (22, 51 + 6 * 3 + 2),
+           ( 23, 51 + 6 * 3 + 1), (23, 51 + 6 * 3 + 2),)
 
 
 def convert_int(val):
@@ -60,29 +80,37 @@ def convert_int(val):
 
 
 def read_final_score():
-    global final_score
-    team_list.clear()
-    workbook = xlrd.open_workbook(FINAL_SCORE_FILE)
-    sheet = workbook.sheet_by_name('2018 World Cup')
-    for r in range(6, 54):
-        team_list.append([sheet.cell(r, 4).value, sheet.cell(r, 7).value])
-    final_score = read_score_list(FINAL_SCORE_FILE)
+    global team_list
+    team_list = read_round_team(FINAL_SCORE_FILE)
 
 
-def read_score_list(filename):
-    score_list = []
+def read_round_team(filename):
+    round_team = []
+    team = []
     workbook = xlrd.open_workbook(filename)
     sheet = workbook.sheet_by_name('2018 World Cup')
-    for r in range(6, 54):
-        sc_left = convert_int(sheet.cell(r, 5).value)
-        sc_right = convert_int(sheet.cell(r, 6).value)
-        if sc_left == "-":
-            wdl = "-"
-        else:
-            wdl = "W" if sc_left > sc_right else "L" if sc_left < sc_right else "D"
 
-        score_list.append([sc_left, sc_right, wdl])
-    return score_list
+    team.clear()
+    for r, c in ROUND_16:
+        team.append((sheet.cell(r, c).value, 5))
+    round_team["R16"] = team[:]
+
+    team.clear()
+    for r, c in ROUND_8:
+        team.append((sheet.cell(r, c).value, 10))
+    round_team["R8"] = team[:]
+
+    team.clear()
+    for r, c in ROUND_4:
+        team.append((sheet.cell(r, c).value, 20))
+    round_team["R4"] = team[:]
+
+    team.clear()
+    for r, c in ROUND_2:
+        team.append((sheet.cell(r, c).value, 20))
+    round_team["R2"] = team[:]
+
+    return round_team
 
 
 def count_score(player_list, last=None):
