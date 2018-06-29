@@ -4,14 +4,15 @@ from scipy.stats import rankdata
 FINAL_SCORE_FILE = "../input/world_cup_2018_final.xlsx"
 team_list = []
 final_score = []
+INPUT_DIR = "../input/"
 PLAYER = {
-    "Jennifer": "../input/world_cup_2018_Jen.xlsx",
-    "Lloyd": "../input/world_cup_2018LR.xlsx",
-    "Mo": "../input/world_cup_2018_Mo.xlsx",
-    "Nathaniel": "../input/world_cup_2018_Ns.xlsx",
-    "Taegon": "../input/world_cup_2018_Taegon.xlsx",
-    "Tim": "../input/world_cup_2018_Tim.xlsx",
-    "Rylie": "../input/world_cup_2018_RP.xlsx",
+    "Jennifer": "world_cup_2018_Jen.xlsx",
+    "Lloyd": "world_cup_2018LR.xlsx",
+    "Mo": "world_cup_2018_Mo.xlsx",
+    "Nathaniel": "world_cup_2018_Ns.xlsx",
+    "Taegon": "world_cup_2018_Taegon.xlsx",
+    "Tim": "world_cup_2018_Tim.xlsx",
+    "Rylie": "world_cup_2018_RP.xlsx",
 }
 PLAYER_RANK = []
 RANKFLOW = [
@@ -88,7 +89,7 @@ def count_score(player_list, last=None):
 
 def read_scores():
     for player_name, filename in PLAYER.items():
-        score_list = read_score_list(filename)
+        score_list = read_score_list(INPUT_DIR + filename)
         player_score[player_name] = dict()
         player_score[player_name]["raw"] = score_list
         player_score[player_name]["score"] = count_score(score_list)
@@ -204,12 +205,26 @@ def make_lineplot_content():
     return lineplot_series_text
 
 
+def group_stage_winner():
+    p_score = []
+    for j, p in enumerate(PLAYER):
+        p_score.append(count_score(player_score[p]["raw"]))
+    max_score = max(p_score)
+
+    winner = []
+    for i, p in enumerate(PLAYER):
+        if max_score == p_score[i]:
+            winner.append(p)
+
+    return "Group Stage winner: " + "<b>" + ", ".join(winner) + "</b>"
+
+
 def build_html():
     contents = None
     with open("../input/template.html", "r") as f:
         contents = f.readlines()
 
-    with open("../html/index.html", "w") as f:
+    with open("../html/index.html", "w", encoding="UTF-8") as f:
         for line in contents:
             if line.strip() == "{{SCORE_TABLE}}":
                 f.write("<table class=\"blueTable\">")
@@ -221,7 +236,7 @@ def build_html():
                 # f.write(wrap_tag("th", header_list))
                 header_content = wrap_tag("th", header_list)
                 for p in PLAYER:
-                    header_content += "<th width=\"70\" colspan=\"2\">{} ({})</th>".format(p, player_score[p]["score"])
+                    header_content += "<th width=\"70\" colspan=\"2\">{} ({}) <a href=\"{}\" target=\"_blank\">{}</a></th>".format(p, player_score[p]["score"], PLAYER[p], u"\u21E9")
                 f.write(header_content)
                 f.write("</thead>")
                 write_table(f)
@@ -277,6 +292,10 @@ def build_html():
             elif "{{LINEPLOT_VALUE}}" in line:
                 lineplot_content = make_lineplot_content()
                 line = line.replace("{{LINEPLOT_VALUE}}", lineplot_content)
+                f.write(line)
+            elif "{{GROUP_STAGE_WINNER}}" in line:
+                lineplot_content = group_stage_winner()
+                line = line.replace("{{GROUP_STAGE_WINNER}}", lineplot_content)
                 f.write(line)
             else:
                 f.write(line)
