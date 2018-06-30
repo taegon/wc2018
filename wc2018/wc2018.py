@@ -2,7 +2,7 @@ import xlrd
 from scipy.stats import rankdata
 
 FINAL_SCORE_FILE = "../input/world_cup_2018_final.xlsx"
-team_list = []
+final_team_list = []
 final_score = []
 INPUT_DIR = "../input/"
 PLAYER = {
@@ -49,11 +49,11 @@ def convert_int(val):
 
 def read_final_score():
     global final_score
-    team_list.clear()
+    final_team_list.clear()
     workbook = xlrd.open_workbook(FINAL_SCORE_FILE)
     sheet = workbook.sheet_by_name('2018 World Cup')
     for r in range(6, 54):
-        team_list.append([sheet.cell(r, 4).value, sheet.cell(r, 7).value])
+        final_team_list.append([sheet.cell(r, 4).value, sheet.cell(r, 7).value])
     final_score = read_score_list(FINAL_SCORE_FILE)
 
 
@@ -109,10 +109,10 @@ def wrap_tag(tag, list):
 
 
 def write_table(f):
-    for i in range(len(team_list)):
+    for i in range(len(final_team_list)):
         f.write("<tr>\n")
         row_content = []
-        row_content.append("{} - {}".format(team_list[i][0], team_list[i][1]))
+        row_content.append("{} - {}".format(final_team_list[i][0], final_team_list[i][1]))
         row_content.append("{}:{} ({})".format(final_score[i][0], final_score[i][1], final_score[i][2]))
         header_list = ["Teams#header", "Score#header"]
         for p in PLAYER:
