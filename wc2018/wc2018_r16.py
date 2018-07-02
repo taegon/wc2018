@@ -12,7 +12,7 @@ PLAYER = {
     "Nathaniel": "world_cup_2018_Ns.xlsx",
     "Taegon": "world_cup_2018r16_TK.xlsx",
     "Tim": "world_cup_2018r16_Tim.xlsx",
-    "Rylie": "world_cup_2018_RP.xlsx",
+    "Rylie": "world_cup_2018r16_RP.xlsx",
 }
 
 PLAYER_1st = {
@@ -248,7 +248,7 @@ def build_html():
                     header_content += "<th width=\"150\">{} ({}) <a href=\"{}\" target=\"_blank\">{}</a></th>".format(p, player_score[p]["score_1st"], PLAYER_1st[p], u"\u21E9")
                 f.write(header_content)
                 f.write("</thead>")
-                write_table_1st(f, 1)
+                write_table_1st(f, 2)
                 f.write("</table>")
             elif "{{GROUP_STAGE_WINNER}}" in line:
                 lineplot_content = group_stage_winner()
