@@ -98,12 +98,12 @@ def read_round_team(filename):
 
     team.clear()
     for r, c in ROUND_2:
-        team.append((sheet.cell(r, c).value, 20))
+        team.append((sheet.cell(r, c).value, 40))
     round_team["R2"] = team[:]
 
     team.clear()
     for r, c in ROUND_1:
-        team.append((sheet.cell(r, c).value, 40))
+        team.append((sheet.cell(r, c).value, 80))
     round_team["R1"] = team[:]
 
     return round_team
@@ -113,7 +113,7 @@ def count_score(player_team_list, start=None, last=None):
     if start is None:
         start = 0
     if last is None:
-        last = 4
+        last = 5
     player_match = []
     for i in range(start, last):
         sol = final_team_list[ROUND_KEY[i]]
@@ -203,7 +203,7 @@ def write_table_1st(f, end_idx):
         f.write("</tr>\n")
 
 
-def group_stage_winner():
+def round16_winner():
     p_score = []
     for j, p in enumerate(PLAYER):
         p_score.append(count_score(player_score[p]["raw"]))
@@ -248,11 +248,11 @@ def build_html():
                     header_content += "<th width=\"150\">{} ({}) <a href=\"{}\" target=\"_blank\">{}</a></th>".format(p, player_score[p]["score_1st"], PLAYER_1st[p], u"\u21E9")
                 f.write(header_content)
                 f.write("</thead>")
-                write_table_1st(f, 3)
+                write_table_1st(f, 5)
                 f.write("</table>")
-            elif "{{GROUP_STAGE_WINNER}}" in line:
-                lineplot_content = group_stage_winner()
-                line = line.replace("{{GROUP_STAGE_WINNER}}", lineplot_content)
+            elif "{{ROUND16_WINNER}}" in line:
+                lineplot_content = round16_winner()
+                line = line.replace("{{ROUND16_WINNER}}", lineplot_content)
                 f.write(line)
             else:
                 f.write(line)
