@@ -222,7 +222,7 @@ def build_html():
     with open("../input/template_16.html", "r") as f:
         contents = f.readlines()
 
-    with open("../html/round_16.html", "w", encoding="UTF-8") as f:
+    with open("../docs/round_16.html", "w", encoding="UTF-8") as f:
         for line in contents:
             if "{{SCORE_TABLE}}" in line:
                 f.write("<table class=\"blueTable\">")

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WC 2018 Score with NiSE, IonE</title>
+    <style>
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+  text-align: center;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.grey {
+    background-color: #EEEEEE;
+}
+.correct {
+    background-color: #66cc66;
+    font-weight: bold;
+}
+.wrong {
+    background-color: #ccaaaa;
+}
+    </style>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+</head>
+<body>
+<a href="round_16.html">Go to Round of 16</a>
+<h1>Group Stage</h1>
+<h2>Winner</h2>
+Group Stage winner: <b>Jennifer, Taegon</b>
+<h2>Score chart</h2>
+<div id='lineChart' style="height: 500px; width: 100%"></div>
+<h2>Ranking chart</h2>
+<div id='myChart' style="height: 500px; width: 100%"></div>
+<h2>Score Table</h2>
+<table class="blueTable"><thead><th class=header>Teams</th>
+<th class=header>Score</th>
+<th width="70" colspan="2">Jennifer (29) <a href="world_cup_2018_Jen.xlsx" target="_blank">⇩</a></th><th width="70" colspan="2">Lloyd (26) <a href="world_cup_2018LR.xlsx" target="_blank">⇩</a></th><th width="70" colspan="2">Mo (26) <a href="world_cup_2018_Mo.xlsx" target="_blank">⇩</a></th><th width="70" colspan="2">Nathaniel (20) <a href="world_cup_2018_Ns.xlsx" target="_blank">⇩</a></th><th width="70" colspan="2">Taegon (29) <a href="world_cup_2018_Taegon.xlsx" target="_blank">⇩</a></th><th width="70" colspan="2">Tim (26) <a href="world_cup_2018_Tim.xlsx" target="_blank">⇩</a></th><th width="70" colspan="2">Rylie (20) <a href="world_cup_2018_RP.xlsx" target="_blank">⇩</a></th></thead><tr>
+<td>Russia - Saudi Arabia</td>
+<td>5:0 (W)</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+<td class=grey>5:0</td>
+<td class=grey>W</td>
+</tr>
+<tr>
+<td>Egypt - Uruguay</td>
+<td>0:1 (L)</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:2</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+</tr>
+<tr>
+<td>Portugal - Spain</td>
+<td>3:3 (D)</td>
+<td class=grey>3:3</td>
+<td class=grey>D</td>
+<td class=grey>3:3</td>
+<td class=grey>D</td>
+<td class=grey>2:2</td>
+<td class=grey>D</td>
+<td class=grey>3:3</td>
+<td class=grey>D</td>
+<td class=grey>3:3</td>
+<td class=grey>D</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>3:3</td>
+<td class=grey>D</td>
+</tr>
+<tr>
+<td>Morocco - Iran</td>
+<td>0:1 (L)</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>1:2</td>
+<td class=grey>L</td>
+<td class=grey>1:0</td>
+<td class=grey>W</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>1:0</td>
+<td class=grey>W</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+</tr>
+<tr>
+<td>France - Australia</td>
+<td>2:1 (W)</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>3:0</td>
+<td class=grey>W</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+</tr>
+<tr>
+<td>Peru - Denmark</td>
+<td>0:1 (L)</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>1:2</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+</tr>
+<tr>
+<td>Argentina - Iceland</td>
+<td>1:1 (D)</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>4:0</td>
+<td class=grey>W</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>2:2</td>
+<td class=grey>D</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+</tr>
+<tr>
+<td>Croatia - Nigeria</td>
+<td>2:0 (W)</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>1:0</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+</tr>
+<tr>
+<td>Brazil - Switzerland</td>
+<td>1:1 (D)</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>3:1</td>
+<td class=grey>W</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+</tr>
+<tr>
+<td>Costa Rica - Serbia</td>
+<td>0:1 (L)</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+</tr>
+<tr>
+<td>Germany - Mexico</td>
+<td>0:1 (L)</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>3:0</td>
+<td class=grey>W</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+<td class=grey>3:2</td>
+<td class=grey>W</td>
+<td class=grey>0:1</td>
+<td class=grey>L</td>
+</tr>
+<tr>
+<td>Sweden - Korea Republic</td>
+<td>1:0 (W)</td>
+<td class=grey>1:0</td>
+<td class=grey>W</td>
+<td class=grey>1:0</td>
+<td class=grey>W</td>
+<td class=grey>1:1</td>
+<td class=grey>D</td>
+<td class=grey>3:3</td>
+<td class=grey>D</td>
+<td class=grey>1:0</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>2:1</td>
+<td class=grey>W</td>
+</tr>
+<tr>
+<td>Belgium - Panama</td>
+<td>3:0 (W)</td>
+<td class=grey>3:0</td>
+<td class=grey>W</td>
+<td class=grey>2:0</td>
+<td class=grey>W</td>
+<td class=grey>4:0</td>
+<td class=grey>W</td>
+<td class=grey>3:1</td>
+<td class=grey>W</td>
+<td class=grey>3:0</td>
+<td class=grey>W</td>
+<td class=grey>3:0</td>
+<td class=grey>W</td>
+<td class=grey>3:2</td>
+<td class=grey>W</td>
+</tr>
+<tr>
+<td>Tunisia - England</td>
+<td>1:2 (L)</td>
+<td class=grey>2:3</td>
+<td class=grey>L</td>
+<td class=grey>1:3</td>
+<td class=grey>L</td>
+<td class=grey>0:0</td>
+<td class=grey>D</td>
+<td class=grey>0:3</td>
+<td class=grey>L</td>
+<td class=grey>0:2</td>
+<td class=grey>L</td>
+<td class=grey>1:2</td>
+<td class=grey>L</td>
+<td class=grey>0:2</td>
+<td class=grey>L</td>
+</tr>
+<tr>
+<td>Poland - Senegal</td>
+<td>1:2 (L)</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>3:1</td>
+<td class=wrong>W</td>
+<td class=wrong>5:1</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Colombia - Japan</td>
+<td>1:2 (L)</td>
+<td class=wrong>1:0</td>
+<td class=wrong>W</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>4:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>4:0</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Russia - Egypt</td>
+<td>3:1 (W)</td>
+<td class=wrong>1:0</td>
+<td class=correct>W</td>
+<td class=correct>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>0:2</td>
+<td class=wrong>L</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:3</td>
+<td class=wrong>D</td>
+</tr>
+<tr>
+<td>Uruguay - Saudi Arabia</td>
+<td>1:0 (W)</td>
+<td class=wrong>2:0</td>
+<td class=correct>W</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>4:0</td>
+<td class=correct>W</td>
+<td class=wrong>5:1</td>
+<td class=correct>W</td>
+<td class=correct>1:0</td>
+<td class=correct>W</td>
+<td class=wrong>4:1</td>
+<td class=correct>W</td>
+<td class=wrong>4:0</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Portugal - Morocco</td>
+<td>1:0 (W)</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>4:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=correct>1:0</td>
+<td class=correct>W</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>5:1</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Iran - Spain</td>
+<td>0:1 (L)</td>
+<td class=wrong>0:3</td>
+<td class=correct>L</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=wrong>0:3</td>
+<td class=correct>L</td>
+<td class=wrong>0:4</td>
+<td class=correct>L</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:5</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>France - Peru</td>
+<td>1:0 (W)</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>0:1</td>
+<td class=wrong>L</td>
+<td class=correct>1:0</td>
+<td class=correct>W</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Denmark - Australia</td>
+<td>1:1 (D)</td>
+<td class=correct>1:1</td>
+<td class=correct>D</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>3:2</td>
+<td class=wrong>W</td>
+<td class=wrong>2:2</td>
+<td class=correct>D</td>
+<td class=wrong>4:2</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Argentina - Croatia</td>
+<td>0:3 (L)</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>3:1</td>
+<td class=wrong>W</td>
+<td class=wrong>4:3</td>
+<td class=wrong>W</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>3:0</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Nigeria - Iceland</td>
+<td>2:0 (W)</td>
+<td class=wrong>1:0</td>
+<td class=correct>W</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+</tr>
+<tr>
+<td>Brazil - Costa Rica</td>
+<td>2:0 (W)</td>
+<td class=wrong>3:2</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:2</td>
+<td class=correct>W</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Serbia - Switzerland</td>
+<td>1:2 (L)</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>0:3</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Germany - Sweden</td>
+<td>2:1 (W)</td>
+<td class=correct>2:1</td>
+<td class=correct>W</td>
+<td class=correct>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>1:0</td>
+<td class=correct>W</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=correct>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>5:1</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Korea Republic - Mexico</td>
+<td>1:2 (L)</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=wrong>2:4</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Belgium - Tunisia</td>
+<td>5:2 (W)</td>
+<td class=wrong>2:0</td>
+<td class=correct>W</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>2:0</td>
+<td class=correct>W</td>
+<td class=wrong>3:2</td>
+<td class=correct>W</td>
+<td class=correct>5:2</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>England - Panama</td>
+<td>6:1 (W)</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>2:0</td>
+<td class=correct>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>3:0</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Poland - Colombia</td>
+<td>0:3 (L)</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>2:3</td>
+<td class=correct>L</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>3:1</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Japan - Senegal</td>
+<td>2:2 (D)</td>
+<td class=correct>2:2</td>
+<td class=correct>D</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=correct>2:2</td>
+<td class=correct>D</td>
+<td class=correct>2:2</td>
+<td class=correct>D</td>
+<td class=wrong>0:2</td>
+<td class=wrong>L</td>
+<td class=wrong>1:0</td>
+<td class=wrong>W</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+</tr>
+<tr>
+<td>Uruguay - Russia</td>
+<td>3:0 (W)</td>
+<td class=wrong>2:1</td>
+<td class=correct>W</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>3:1</td>
+<td class=correct>W</td>
+<td class=wrong>4:2</td>
+<td class=correct>W</td>
+</tr>
+<tr>
+<td>Saudi Arabia - Egypt</td>
+<td>2:1 (W)</td>
+<td class=wrong>2:3</td>
+<td class=wrong>L</td>
+<td class=wrong>3:3</td>
+<td class=wrong>D</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>2:3</td>
+<td class=wrong>L</td>
+<td class=wrong>1:0</td>
+<td class=correct>W</td>
+<td class=wrong>1:3</td>
+<td class=wrong>L</td>
+<td class=wrong>0:2</td>
+<td class=wrong>L</td>
+</tr>
+<tr>
+<td>Iran - Portugal</td>
+<td>1:1 (D)</td>
+<td class=wrong>0:2</td>
+<td class=wrong>L</td>
+<td class=wrong>1:3</td>
+<td class=wrong>L</td>
+<td class=wrong>0:2</td>
+<td class=wrong>L</td>
+<td class=wrong>0:5</td>
+<td class=wrong>L</td>
+<td class=wrong>0:3</td>
+<td class=wrong>L</td>
+<td class=wrong>0:3</td>
+<td class=wrong>L</td>
+<td class=wrong>1:4</td>
+<td class=wrong>L</td>
+</tr>
+<tr>
+<td>Spain - Morocco</td>
+<td>2:2 (D)</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>3:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>4:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>4:1</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Denmark - France</td>
+<td>0:0 (D)</td>
+<td class=wrong>2:3</td>
+<td class=wrong>L</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>1:3</td>
+<td class=wrong>L</td>
+<td class=correct>0:0</td>
+<td class=correct>D</td>
+<td class=wrong>0:1</td>
+<td class=wrong>L</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:4</td>
+<td class=wrong>L</td>
+</tr>
+<tr>
+<td>Australia - Peru</td>
+<td>0:2 (L)</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>0:3</td>
+<td class=correct>L</td>
+<td class=wrong>3:3</td>
+<td class=wrong>D</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>2:4</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Nigeria - Argentina</td>
+<td>1:2 (L)</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:5</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Iceland - Croatia</td>
+<td>1:2 (L)</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>5:5</td>
+<td class=wrong>D</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:3</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Serbia - Brazil</td>
+<td>0:2 (L)</td>
+<td class=correct>0:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:3</td>
+<td class=correct>L</td>
+<td class=correct>0:2</td>
+<td class=correct>L</td>
+<td class=wrong>3:4</td>
+<td class=correct>L</td>
+<td class=wrong>0:3</td>
+<td class=correct>L</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>2:4</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Switzerland - Costa Rica</td>
+<td>2:2 (D)</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=correct>2:2</td>
+<td class=correct>D</td>
+<td class=wrong>4:1</td>
+<td class=wrong>W</td>
+<td class=wrong>1:1</td>
+<td class=correct>D</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>4:1</td>
+<td class=wrong>W</td>
+</tr>
+<tr>
+<td>Korea Republic - Germany</td>
+<td>2:0 (W)</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>0:4</td>
+<td class=wrong>L</td>
+<td class=wrong>0:4</td>
+<td class=wrong>L</td>
+<td class=wrong>1:4</td>
+<td class=wrong>L</td>
+<td class=wrong>1:2</td>
+<td class=wrong>L</td>
+<td class=wrong>0:6</td>
+<td class=wrong>L</td>
+</tr>
+<tr>
+<td>Mexico - Sweden</td>
+<td>0:3 (L)</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>3:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>3:0</td>
+<td class=wrong>W</td>
+<td class=wrong>0:1</td>
+<td class=correct>L</td>
+<td class=wrong>3:2</td>
+<td class=wrong>W</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+</tr>
+<tr>
+<td>England - Belgium</td>
+<td>0:1 (L)</td>
+<td class=correct>0:1</td>
+<td class=correct>L</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=correct>0:1</td>
+<td class=correct>L</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>2:4</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Panama - Tunisia</td>
+<td>1:2 (L)</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>0:1</td>
+<td class=correct>L</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>2:0</td>
+<td class=wrong>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=correct>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+</tr>
+<tr>
+<td>Japan - Poland</td>
+<td>0:1 (L)</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>2:1</td>
+<td class=wrong>W</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>0:3</td>
+<td class=correct>L</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:5</td>
+<td class=correct>L</td>
+</tr>
+<tr>
+<td>Senegal - Colombia</td>
+<td>0:1 (L)</td>
+<td class=wrong>3:1</td>
+<td class=wrong>W</td>
+<td class=wrong>0:2</td>
+<td class=correct>L</td>
+<td class=wrong>2:2</td>
+<td class=wrong>D</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:1</td>
+<td class=wrong>D</td>
+<td class=wrong>1:2</td>
+<td class=correct>L</td>
+<td class=wrong>1:4</td>
+<td class=correct>L</td>
+</tr>
+</table>
+<script>
+var myConfig = {
+    "type":"rankflow",
+    "options":{
+        "sep-space":0,
+        "style":{
+            "flow":{
+                "border-color":"black",
+                "border-width":2
+            }
+        }
+    },
+    "plotarea":{
+        "margin":20
+    },
+    "scale-x":{
+        "labels":["June 28 (R3)","June 27","June 26","June 24 (R2)","June 22","June 20","June 19 (R1)"],
+        "values":["June 28 (R3)","June 27","June 26","June 24 (R2)","June 22","June 20","June 19 (R1)"]
+    },
+    "series":[
+    
+        {
+          "text":"Jennifer",
+          "ranks":[2,2,3,2,2,4,4],
+          "rank":2
+        },
+        
+        {
+          "text":"Lloyd",
+          "ranks":[5,3,2,3,4,2,1],
+          "rank":5
+        },
+        
+        {
+          "text":"Mo",
+          "ranks":[4,4,5,5,5,7,7],
+          "rank":4
+        },
+        
+        {
+          "text":"Nathaniel",
+          "ranks":[7,7,7,7,7,6,6],
+          "rank":7
+        },
+        
+        {
+          "text":"Taegon",
+          "ranks":[1,1,1,1,1,1,3],
+          "rank":1
+        },
+        
+        {
+          "text":"Tim",
+          "ranks":[3,5,4,4,3,3,2],
+          "rank":3
+        },
+        
+        {
+          "text":"Rylie",
+          "ranks":[6,6,6,6,6,5,5],
+          "rank":6
+        },
+        
+    ]
+};
+
+
+var lineConfig = {
+    "type":"line",
+    "plotarea": {
+        "adjust-layout":true /* For automatic margin adjustment. */
+    },
+        "legend": {
+        "align":"center",
+        "border-color": "none",
+        "shadow": false,
+        "layout": "float",
+        "margin-top":"9%",
+        "item": {
+            "font-color": "#666"
+        },
+        "marker":{
+          "size": 5,
+          "shadow": 0
+        },
+    },
+    "tooltip":{
+        "text":"%t: %v at %kl"
+    },
+    "plot":{
+        "aspect":"segmented"
+        // "aspect":"stepped"
+    },
+    "scale-x": {
+        "label":{ /* Add a scale title with a label object. */
+            "text":"Accumulative score by time series",
+        },
+        /* Add your scale labels with a labels array. */
+        "labels":["June 19 (R1)","June 20","June 21","June 22","June 24 (R2)","June 25","June 26","June 27","June 28 (R3)"]
+    },
+    "series":[
+        
+        {
+          "values":[1,8,11,15,22,23,24,27,29],
+          "text": 'Taegon',
+        },
+        
+        {
+          "values":[1,4,8,11,20,21,23,26,29],
+          "text": 'Jennifer',
+        },
+        
+        {
+          "values":[1,4,6,10,16,17,21,21,26],
+          "text": 'Tim',
+        },
+        
+        {
+          "values":[0,3,4,8,14,14,17,23,26],
+          "text": 'Mo',
+        },
+        
+        {
+          "values":[3,6,8,10,17,17,23,24,26],
+          "text": 'Lloyd',
+        },
+        
+        {
+          "values":[0,3,4,6,12,13,16,17,20],
+          "text": 'Rylie',
+        },
+        
+        {
+          "values":[0,3,3,4,11,12,16,17,20],
+          "text": 'Nathaniel',
+        },
+        
+    ]
+};
+
+zingchart.render({
+	id : 'myChart',
+	data : myConfig,
+	height: "100%",
+	width: "100%"
+});
+
+
+zingchart.render({
+	id : 'lineChart',
+	data : lineConfig,
+	height: "100%",
+	width: "100%"
+});
+</script>
+</body>
+</html>

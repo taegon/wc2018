@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WC 2018 Score with NiSE, IonE</title>
+    <style>
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+  text-align: center;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.grey {
+    background-color: #EEEEEE;
+}
+.correct {
+    background-color: #66cc66;
+    font-weight: bold;
+}
+.wrong {
+    background-color: #ccaaaa;
+}
+    </style>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+</head>
+<body>
+<a href="index.html">Go to Group Stage</a>
+<h1>Round of 16</h1>
+<h2>Winner</h2>
+Round of 16's winner: <b>Mo</b>
+<h2>Score Table</h2>
+<table class="blueTable"><thead><th class=header>Stage</th>
+<th class=header>Teams</th>
+<th width="150">Jennifer (30) <a href="world_cup_2018r16-JS.xlsx" target="_blank">⇩</a></th><th width="150">Lloyd (150) <a href="world_cup_2018r16LR.xlsx" target="_blank">⇩</a></th><th width="150">Mo (190) <a href="world_cup_2018r16_Mo.xlsx" target="_blank">⇩</a></th><th width="150">Nathaniel (30) <a href="world_cup_2018_Ns.xlsx" target="_blank">⇩</a></th><th width="150">Taegon (80) <a href="world_cup_2018r16_TK.xlsx" target="_blank">⇩</a></th><th width="150">Tim (150) <a href="world_cup_2018r16_Tim.xlsx" target="_blank">⇩</a></th><th width="150">Rylie (30) <a href="world_cup_2018r16_RP.xlsx" target="_blank">⇩</a></th></thead><tr>
+<td rowspan="8">R8</td><td>Uruguay</td>
+<td class=wrong>Portugal</td>
+<td class=correct>Uruguay</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<tr>
+<td>France</td>
+<td class=wrong>Argentina</td>
+<td class=correct>France</td>
+<td class=correct>France</td>
+<td class=wrong>Denmark</td>
+<td class=wrong>Argentina</td>
+<td class=wrong>Argentina</td>
+<td class=wrong>Argentina</td>
+<tr>
+<td>Brazil</td>
+<td class=wrong>Mexico</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=wrong>Switzerland</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<tr>
+<td>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<tr>
+<td>Russia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Portugal</td>
+<td class=correct>Russia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<tr>
+<td>Croatia</td>
+<td class=correct>Croatia</td>
+<td class=correct>Croatia</td>
+<td class=correct>Croatia</td>
+<td class=wrong>Peru</td>
+<td class=correct>Croatia</td>
+<td class=correct>Croatia</td>
+<td class=correct>Croatia</td>
+<tr>
+<td>Sweden</td>
+<td class=wrong>Switzerland</td>
+<td class=correct>Sweden</td>
+<td class=correct>Sweden</td>
+<td class=wrong>Mexico</td>
+<td class=correct>Sweden</td>
+<td class=correct>Sweden</td>
+<td class=wrong>Switzerland</td>
+<tr>
+<td>England</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=wrong>Colombia</td>
+<td class=wrong>Colombia</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=wrong>Colombia</td>
+</tr>
+<tr>
+<td rowspan="4">R4</td><td>France</td>
+<td class=wrong>Argentina</td>
+<td class=wrong>Uruguay</td>
+<td class=correct>France</td>
+<td class=wrong>Denmark</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<tr>
+<td>Belgium</td>
+<td class=wrong>Mexico</td>
+<td class=correct>Belgium</td>
+<td class=wrong>Brazil</td>
+<td class=correct>Belgium</td>
+<td class=wrong>Brazil</td>
+<td class=correct>Belgium</td>
+<td class=wrong>Brazil</td>
+<tr>
+<td>Croatia</td>
+<td class=wrong>Spain</td>
+<td class=correct>Croatia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Peru</td>
+<td class=wrong>Russia</td>
+<td class=correct>Croatia</td>
+<td class=wrong>Spain</td>
+<tr>
+<td>England</td>
+<td class=wrong>Switzerland</td>
+<td class=wrong>Sweden</td>
+<td class=wrong>Colombia</td>
+<td class=wrong>Mexico</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=wrong>Colombia</td>
+</tr>
+<tr>
+<td rowspan="2">R2</td><td>France</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Belgium</td>
+<td class=correct>France</td>
+<td class=wrong>Belgium</td>
+<td class=wrong>Brazil</td>
+<td class=wrong>Belgium</td>
+<td class=wrong>Brazil</td>
+<tr>
+<td>Croatia</td>
+<td class=wrong>Spain</td>
+<td class=correct>Croatia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Russia</td>
+<td class=correct>Croatia</td>
+<td class=wrong>Spain</td>
+</tr>
+<tr>
+<td rowspan="1">R1</td><td>France</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Belgium</td>
+<td class=correct>France</td>
+<td class=wrong>Belgium</td>
+<td class=wrong>Russia</td>
+<td class=wrong>Belgium</td>
+<td class=wrong>Spain</td>
+</tr>
+</table>
+<h2>Score Table for first toss</h2>
+<h3>Don't have rule for this. Just fun or maybe new rules.</h3>
+<table class="blueTable"><thead><th class=header>Stage</th>
+<th class=header>Teams</th>
+<th width="150">Jennifer (120) <a href="world_cup_2018_Jen.xlsx" target="_blank">⇩</a></th><th width="150">Lloyd (115) <a href="world_cup_2018LR.xlsx" target="_blank">⇩</a></th><th width="150">Mo (235) <a href="world_cup_2018_Mo.xlsx" target="_blank">⇩</a></th><th width="150">Nathaniel (90) <a href="world_cup_2018_Ns.xlsx" target="_blank">⇩</a></th><th width="150">Taegon (120) <a href="world_cup_2018_Taegon.xlsx" target="_blank">⇩</a></th><th width="150">Tim (100) <a href="world_cup_2018_Tim.xlsx" target="_blank">⇩</a></th><th width="150">Rylie (100) <a href="world_cup_2018_RP.xlsx" target="_blank">⇩</a></th></thead><tr>
+<td rowspan="16">R16</td><td>Uruguay</td>
+<td class=correct>Uruguay</td>
+<td class=correct>Russia</td>
+<td class=correct>Uruguay</td>
+<td class=correct>Uruguay</td>
+<td class=correct>Russia</td>
+<td class=correct>Uruguay</td>
+<td class=correct>Uruguay</td>
+<tr>
+<td>Portugal</td>
+<td class=correct>Portugal</td>
+<td class=correct>Spain</td>
+<td class=correct>Spain</td>
+<td class=correct>Spain</td>
+<td class=correct>Spain</td>
+<td class=correct>Spain</td>
+<td class=correct>Spain</td>
+<tr>
+<td>France</td>
+<td class=correct>France</td>
+<td class=correct>France</td>
+<td class=correct>France</td>
+<td class=correct>Denmark</td>
+<td class=correct>France</td>
+<td class=correct>Denmark</td>
+<td class=correct>France</td>
+<tr>
+<td>Argentina</td>
+<td class=correct>Croatia</td>
+<td class=correct>Argentina</td>
+<td class=correct>Croatia</td>
+<td class=correct>Croatia</td>
+<td class=correct>Croatia</td>
+<td class=correct>Argentina</td>
+<td class=correct>Croatia</td>
+<tr>
+<td>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=correct>Switzerland</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=correct>Switzerland</td>
+<tr>
+<td>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Germany</td>
+<td class=correct>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=correct>Mexico</td>
+<td class=correct>Mexico</td>
+<td class=wrong>Germany</td>
+<tr>
+<td>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>England</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<tr>
+<td>Japan</td>
+<td class=correct>Japan</td>
+<td class=correct>Japan</td>
+<td class=correct>Colombia</td>
+<td class=wrong>Poland</td>
+<td class=wrong>Poland</td>
+<td class=correct>Colombia</td>
+<td class=correct>Colombia</td>
+<tr>
+<td>Spain</td>
+<td class=correct>Spain</td>
+<td class=correct>Portugal</td>
+<td class=correct>Portugal</td>
+<td class=correct>Portugal</td>
+<td class=correct>Portugal</td>
+<td class=correct>Portugal</td>
+<td class=correct>Portugal</td>
+<tr>
+<td>Russia</td>
+<td class=correct>Russia</td>
+<td class=correct>Uruguay</td>
+<td class=correct>Russia</td>
+<td class=wrong>Egypt</td>
+<td class=correct>Uruguay</td>
+<td class=correct>Russia</td>
+<td class=correct>Russia</td>
+<tr>
+<td>Croatia</td>
+<td class=correct>Argentina</td>
+<td class=correct>Croatia</td>
+<td class=correct>Argentina</td>
+<td class=correct>Argentina</td>
+<td class=correct>Argentina</td>
+<td class=wrong>Iceland</td>
+<td class=correct>Argentina</td>
+<tr>
+<td>Denmark</td>
+<td class=correct>Denmark</td>
+<td class=correct>Denmark</td>
+<td class=wrong>Peru</td>
+<td class=wrong>Peru</td>
+<td class=correct>Denmark</td>
+<td class=correct>France</td>
+<td class=correct>Denmark</td>
+<tr>
+<td>Sweden</td>
+<td class=correct>Mexico</td>
+<td class=correct>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=correct>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Germany</td>
+<td class=correct>Mexico</td>
+<tr>
+<td>Switzerland</td>
+<td class=correct>Switzerland</td>
+<td class=correct>Switzerland</td>
+<td class=correct>Switzerland</td>
+<td class=correct>Brazil</td>
+<td class=correct>Switzerland</td>
+<td class=wrong>Costa Rica</td>
+<td class=correct>Brazil</td>
+<tr>
+<td>Colombia</td>
+<td class=wrong>Senegal</td>
+<td class=correct>Colombia</td>
+<td class=wrong>Poland</td>
+<td class=correct>Colombia</td>
+<td class=correct>Colombia</td>
+<td class=wrong>Poland</td>
+<td class=wrong>Poland</td>
+<tr>
+<td>England</td>
+<td class=correct>England</td>
+<td class=correct>Belgium</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+</tr>
+<tr>
+<td rowspan="8">R8</td><td>Uruguay</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<td class=correct>Russia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<tr>
+<td>France</td>
+<td class=correct>France</td>
+<td class=correct>France</td>
+<td class=correct>France</td>
+<td class=wrong>Denmark</td>
+<td class=correct>France</td>
+<td class=wrong>Argentina</td>
+<td class=correct>France</td>
+<tr>
+<td>Brazil</td>
+<td class=wrong>Germany</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=wrong>Switzerland</td>
+<td class=correct>Brazil</td>
+<td class=correct>Brazil</td>
+<td class=wrong>Germany</td>
+<tr>
+<td>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>England</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<td class=correct>Belgium</td>
+<tr>
+<td>Russia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<tr>
+<td>Croatia</td>
+<td class=wrong>Argentina</td>
+<td class=correct>Croatia</td>
+<td class=wrong>Argentina</td>
+<td class=wrong>Peru</td>
+<td class=wrong>Argentina</td>
+<td class=correct>France</td>
+<td class=wrong>Argentina</td>
+<tr>
+<td>Sweden</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Germany</td>
+<td class=correct>Brazil</td>
+<tr>
+<td>England</td>
+<td class=correct>England</td>
+<td class=wrong>Colombia</td>
+<td class=wrong>Poland</td>
+<td class=wrong>Colombia</td>
+<td class=correct>England</td>
+<td class=correct>England</td>
+<td class=wrong>Poland</td>
+</tr>
+<tr>
+<td rowspan="4">R4</td><td>France</td>
+<td class=correct>France</td>
+<td class=wrong>Spain</td>
+<td class=correct>France</td>
+<td class=wrong>Denmark</td>
+<td class=wrong>Russia</td>
+<td class=wrong>Argentina</td>
+<td class=wrong>Spain</td>
+<tr>
+<td>Belgium</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Brazil</td>
+<td class=wrong>Brazil</td>
+<td class=correct>Belgium</td>
+<td class=wrong>Brazil</td>
+<td class=wrong>Brazil</td>
+<td class=wrong>Germany</td>
+<tr>
+<td>Croatia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Argentina</td>
+<td class=wrong>Peru</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Portugal</td>
+<tr>
+<td>England</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Brazil</td>
+</tr>
+<tr>
+<td rowspan="2">R2</td><td>France</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Spain</td>
+<td class=correct>France</td>
+<td class=wrong>Belgium</td>
+<td class=wrong>Russia</td>
+<td class=wrong>Brazil</td>
+<td class=wrong>Germany</td>
+<tr>
+<td>Croatia</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Portugal</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Mexico</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Germany</td>
+<td class=wrong>Brazil</td>
+</tr>
+<tr>
+<td rowspan="1">R1</td><td>France</td>
+<td class=wrong>Spain</td>
+<td class=wrong>Spain</td>
+<td class=correct>France</td>
+<td class=wrong>Belgium</td>
+<td class=wrong>Russia</td>
+<td class=wrong>Brazil</td>
+<td class=wrong>Germany</td>
+</tr>
+</table>
+
+<script>
+var myConfig = {
+    "type":"rankflow",
+    "options":{
+        "sep-space":0,
+        "style":{
+            "flow":{
+                "border-color":"black",
+                "border-width":2
+            }
+        }
+    },
+    "plotarea":{
+        "margin":20
+    },
+    "scale-x":{
+        "labels":[{{RANKFLOW_LABELS}}],
+        "values":[{{RANKFLOW_VALUES}}]
+    },
+    "series":[
+    {{RANKFLOW_SERIES}}
+    ]
+};
+
+
+var lineConfig = {
+    "type":"line",
+    "plotarea": {
+        "adjust-layout":true /* For automatic margin adjustment. */
+    },
+        "legend": {
+        "align":"center",
+        "border-color": "none",
+        "shadow": false,
+        "layout": "float",
+        "margin-top":"9%",
+        "item": {
+            "font-color": "#666"
+        },
+        "marker":{
+          "size": 5,
+          "shadow": 0
+        },
+    },
+    "tooltip":{
+        "text":"%t: %v at %kl"
+    },
+    "plot":{
+        "aspect":"segmented"
+        // "aspect":"stepped"
+    },
+    "scale-x": {
+        "label":{ /* Add a scale title with a label object. */
+            "text":"Accumulative score by time series",
+        },
+        /* Add your scale labels with a labels array. */
+        "labels":[{{LINEPLOT_LABEL}}]
+    },
+    "series":[
+        {{LINEPLOT_VALUE}}
+    ]
+};
+
+zingchart.render({
+	id : 'myChart',
+	data : myConfig,
+	height: "100%",
+	width: "100%"
+});
+
+
+zingchart.render({
+	id : 'lineChart',
+	data : lineConfig,
+	height: "100%",
+	width: "100%"
+});
+</script>
+</body>
+</html>
